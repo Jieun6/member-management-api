@@ -1,0 +1,55 @@
+.title {
+    font-size: 2.3em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 100px; /* 상단 여백 */
+    margin-bottom: 80px; /* 하단 여백 */
+}
+
+.container {
+    text-align: center;
+}
+
+.button-container { /* 멤버 등록 버튼 */
+    text-align: right;
+    margin-bottom: 70px;
+    margin-right: 10%;
+}
+
+.custom-button {
+    width: 120px;  /* 버튼의 너비 */
+    height: 50px;  /* 버튼의 높이 */
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse; /* 인접한 셀 간의 테두리가 합쳐져 하나의 테두리로 보이게 함 */
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 15px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+thead tr {
+    border-bottom: 3px solid black;
+}
+
+thead th {
+    font-size: 20px;
+}
+
+tbody td {
+    font-size: 19px;
+}
+
+

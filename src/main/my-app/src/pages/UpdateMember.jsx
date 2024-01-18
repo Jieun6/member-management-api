@@ -32,7 +32,7 @@ const UpdateMember = () => {
         document.getElementById('input_age').value = '';
         document.getElementById('input_address').value = '';
         console.log('writeBoard');
-        const request_data = {id: id, name: name, age: age, address: address};
+        const request_data = {id: id, username: name, age: age, address: address};
         console.log('req_data: ', request_data);
         try{
             let response = await axios({

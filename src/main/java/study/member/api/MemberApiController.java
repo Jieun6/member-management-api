@@ -3,6 +3,7 @@ package study.member.api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import study.member.domain.Member;
 import study.member.dto.MemberDeleteDto;
@@ -67,13 +68,18 @@ public class MemberApiController {
     }
 
     @DeleteMapping("/delete-member")
-    public void delete_member(@RequestBody MemberDeleteDto memberDeleteDto){
+    public ResponseEntity delete_member(@RequestBody MemberDeleteDto memberDeleteDto){
         System.out.println("memberDeleteDto = " + memberDeleteDto);
+        HttpHeaders headers = new HttpHeaders();
+        Map<String, String> body = new HashMap<>();
+        HttpStatus status = HttpStatus.NO_CONTENT;
         try{
             Member member = memberService.findOne(memberDeleteDto.getId());
             memberService.delete(member);
         }catch (Exception exception){
+            status = HttpStatus.BAD_REQUEST;
             System.out.println("exception = " + exception);
         }
+        return new ResponseEntity(body, headers, status);
     }
 }

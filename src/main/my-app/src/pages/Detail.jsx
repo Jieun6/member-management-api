@@ -53,10 +53,9 @@ const Detail = () => {
             let response = await axios.get(`/api/member-detail/${id}`);
             console.log('Detail/response: ', response);
             console.log('Detail/response.data: ', response.data);
-            console.log('Detail/response.data.data: ', response.data.data);
-            setName(response.data.data.name);
-            setAge(response.data.data.age);
-            setAddress(response.data.data.address);
+            setName(response.data.username);
+            setAge(response.data.age);
+            setAddress(response.data.address);
         }
         getDetailBoard();
     }, [])

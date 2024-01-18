@@ -7,16 +7,11 @@ const MemberBox = (props) => {
     console.log('beerBox/props.title: ', props.title);
     return(
         <>
-            <tr key={props.id}>
-                <Link
-                    to = {"/detail"}
-                    state = {{
-                        id: props.id,
-                    }}
-                >
-                    <td>{props.id}</td>
-                    <td>{props.username}</td>
+            <tr key={props.key}>
+                <Link to={"/detail"} state={{id:props.id}}>
+                <td>{props.id}</td>
                 </Link>
+                <td>{props.username}</td>
                 <td>{props.age}</td>
                 <td>{props.address}</td>
             </tr>

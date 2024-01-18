@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form';
 import './CreateMember.css'
 
 const CreateMember = () => {
-    const [name, setName] = useState("");
+    const [username, setName] = useState("");
     const [age, setAge] = useState("");
     const [address, setAddress] = useState("");
     let navigate = useNavigate(); // 다른 component 로 이동할 때 사용
@@ -20,11 +20,11 @@ const CreateMember = () => {
         document.getElementById('input_age').value = '';
         document.getElementById('input_address').value = '';
     }
-    /*const handleInputClick = async (e) => {
-        document.getElementById('input_title').value = '';
-        document.getElementById('textarea_content').value = '';
+    const handleInputClick = async (e) => {
+        //document.getElementById('input_title').value = '';
+        //document.getElementById('textarea_content').value = '';
         console.log('writeBoard');
-        const request_data = { name: name, age: age, address: address };
+        const request_data = { username: username, age: age, address: address};
         console.log('req_data: ', request_data);
         try{
             let response = await axios({
@@ -40,7 +40,7 @@ const CreateMember = () => {
             console.log('CreateMember/handleInput/err: ', err);
             resetInput();
         }
-    }*/
+    }
 
     // 목록으로
     const handleListBtnClick = async (e) => {
@@ -57,7 +57,7 @@ const CreateMember = () => {
                 <Form className="custom-form">
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>이름</Form.Label>
-                        <Form.Control id='input_name' type="text" placeholder="이름을 입력하세요" onChange={(e) => setName(e.target.value) } value={name}/>
+                        <Form.Control id='input_name' type="text" placeholder="이름을 입력하세요" onChange={(e) => setName(e.target.value) } value={username}/>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -70,7 +70,7 @@ const CreateMember = () => {
                         <Form.Control id='input_address' type="text" placeholder="주소를 입력하세요" onChange={(e) => setAddress(e.target.value) } value={address}/>
                     </Form.Group>
                     <br/>
-                    <Button variant="primary" className="create-button" type="button">
+                    <Button variant="primary" className="create-button" type="button" onClick={handleInputClick}>
                         멤버 등록
                     </Button>
                     <Button variant="secondary" className="create-button" type="button" onClick={handleListBtnClick}>

@@ -37,6 +37,7 @@ public class BoardApiController {
             boardService.save(boardDto.getMember_id(), boardDto.getTitle(), boardDto.getContent(), boardDto.getPassword());
         }catch(Exception e){
             System.out.println("e = " + e);
+            System.out.println("e = " + e);
         }
     }
 }

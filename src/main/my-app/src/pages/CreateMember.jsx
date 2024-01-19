@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import './CreateMember.css'
+import './form.css'
 
 const CreateMember = () => {
     const [username, setName] = useState("");
@@ -21,10 +21,10 @@ const CreateMember = () => {
         document.getElementById('input_address').value = '';
     }
     const handleInputClick = async (e) => {
-        //document.getElementById('input_title').value = '';
-        //document.getElementById('textarea_content').value = '';
+        document.getElementById('input_name').value = '';
+        document.getElementById('input_age').value = '';
         console.log('writeBoard');
-        const request_data = { username: username, age: age, address: address};
+        const request_data = { username: username, age: age, address: address };
         console.log('req_data: ', request_data);
         try{
             let response = await axios({
@@ -50,9 +50,7 @@ const CreateMember = () => {
 
     return (
         <>
-            {/*<input type="button" value="게시글 생성" onClick={handleInputClick}/>*/}
-            <div className="title">멤버 등록</div>
-            <div className="sub-title">멤버 입력</div>
+            <div className="title">멤버 등록 폼</div>
             <div className="form-container">
                 <Form className="custom-form">
                     <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -70,15 +68,14 @@ const CreateMember = () => {
                         <Form.Control id='input_address' type="text" placeholder="주소를 입력하세요" onChange={(e) => setAddress(e.target.value) } value={address}/>
                     </Form.Group>
                     <br/>
-                    <Button variant="primary" className="create-button" type="button" onClick={handleInputClick}>
+                    <Button variant="primary" className="create-member-button" type="button" onClick={handleInputClick}>
                         멤버 등록
                     </Button>
-                    <Button variant="secondary" className="create-button" type="button" onClick={handleListBtnClick}>
+                    <Button variant="secondary" className="create-member-button-back" type="button" onClick={handleListBtnClick}>
                         취소
                     </Button>
                 </Form>
             </div>
-
         </>
     )
 }

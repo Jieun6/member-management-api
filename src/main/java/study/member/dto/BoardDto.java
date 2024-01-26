@@ -11,23 +11,26 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class BoardDto {
 
+    private Long id;
+
     private Long member_id;
 
     private String title;
 
     private String content;
 
-    private Integer likenum;
+    private Integer likeNum;
 
     private Integer password;
 
     private LocalDateTime orderDate;
 
     public BoardDto(Board board){
+        this.id = board.getId();
         this.member_id = board.getMember().getId();
         this.title = board.getTitle();
         this.content = board.getContent();
-        this.likenum = board.getLikenum();
+        this.likeNum = board.getLikeNum();
         this.password = board.getPassword();
         this.orderDate = board.getDateTime();
     }

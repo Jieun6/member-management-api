@@ -19,7 +19,6 @@ import java.util.Optional;
 public class BoardService {
 
     private final BoardRepository boardRepository;
-    private final MemberRepository memberRepository;
 
     public List<Board> findAll() {
         return boardRepository.findAll();
@@ -30,25 +29,20 @@ public class BoardService {
     }
 
     @Transactional
-    public void save(Long memberId, String title, String content, Integer password){
-        //멤버 조회
-        Member member = memberRepository.findById(memberId).get();
-
-        //시간 첨가
-        LocalDateTime now = LocalDateTime.now();
-
-        //게시글 생성
-        Board board = Board.createBoard(member, title, content, password, now);
-
-        //게시글 저장
+    public void save(Board board){
         boardRepository.save(board);
     }
 
-    public void cancel(Long id){
-
+    @Transactional
+    public void update(Board board, String title, String content){
+        board.setTitle(title);
+        board.setContent(content);
+        board.setDateTime(LocalDateTime.now());
     }
 
     @Transactional
-    public void update(Long id, String name){
+    public void delete(Long id){
+        Board board = this.findOne(id);
+        boardRepository.delete(board);
     }
 }

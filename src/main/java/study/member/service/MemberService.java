@@ -3,6 +3,7 @@ package study.member.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import study.member.domain.Board;
 import study.member.domain.Member;
 import study.member.repository.MemberRepository;
 
@@ -31,7 +32,7 @@ public class MemberService{
     }
 
     private void validateDuplicateMember(Member member) {
-        Optional<Member> checkMember = memberRepository.findByUserName(member.getUsername());
+        Optional<Member> checkMember = memberRepository.findByusername(member.getUsername());
         if(!checkMember.isEmpty()){
             throw new IllegalStateException("이미 존재하는 회원입니다.");
         }

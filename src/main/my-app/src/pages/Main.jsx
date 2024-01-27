@@ -27,10 +27,15 @@ const Main = () => {
             <div className="title">멤버 목록</div>
 
             <div className="button-container">
+                <Link to={"/write"} >
+                    <Button variant="warning" className="custom-button">글쓰기</Button>
+                </Link>
+
                 <Link to={"/create-member"} >
                     <Button variant="primary" className="custom-button">멤버 등록</Button>
                 </Link>
             </div>
+
             <div className="table-container">
                 <table>
                     <thead>

@@ -73,6 +73,7 @@ public class MemberApiController {
         HttpHeaders headers = new HttpHeaders();
         Map<String, String> body = new HashMap<>();
         HttpStatus status = HttpStatus.NO_CONTENT;
+        System.out.println(memberDeleteDto.getId());
         try{
             Member member = memberService.findOne(memberDeleteDto.getId());
             memberService.delete(member);

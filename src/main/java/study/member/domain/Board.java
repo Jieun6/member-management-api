@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Entity
 @Data
 @Table(name = "board")
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Board {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,16 +25,15 @@ public class Board {
 
     private String content;
 
-    @ColumnDefault("0")
-    private Integer likenum;
+    private Integer likeNum;
 
     private Integer password;
 
     private LocalDateTime dateTime;
 
     //==생성자==//
-
     public Board(String title, String content, Integer password) {
+        this.likeNum = 0;
         this.title = title;
         this.content = content;
         this.password = password;
@@ -48,11 +47,8 @@ public class Board {
 
     //==생성 메서드==//
     public static Board createBoard(Member member, String title, String content, Integer password, LocalDateTime localDateTime){
-        Board board = new Board();
+        Board board = new Board(title, content, password);
         board.setMember(member);
-        board.setTitle(title);
-        board.setContent(content);
-        board.setPassword(password);
         board.setDateTime(localDateTime);
         return board;
     }

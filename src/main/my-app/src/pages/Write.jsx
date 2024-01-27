@@ -13,7 +13,7 @@ const CreateMember = () => {
     const [password, setPassword] = useState(""); // 사용자가 입력한 비밀번호 저장
     const [showPassword, setShowPassword] = useState(false); // 비밀번호를 텍스트 형태로 보여줄지 여부 결정
     let navigate = useNavigate(); // 다른 component 로 이동할 때 사용
-
+git
     const resetInput = () => {
         setId("");
         setTitle("");
@@ -35,7 +35,7 @@ const CreateMember = () => {
         try{
             let response = await axios({
                 method: 'post',
-                url: '/api/write',
+                url: '/api/create-board',
                 headers: {'Content-Type': 'application/json'},
                 data: JSON.stringify(request_data)
             });

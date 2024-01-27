@@ -3,7 +3,7 @@
     font-weight: bold;
     text-align: center;
     margin-top: 100px; /* 상단 여백 */
-    margin-bottom: 80px; /* 하단 여백 */
+    margin-bottom: 65px; /* 하단 여백 */
 }
 
 .form-container {
@@ -48,4 +48,13 @@
     height: 50px;  /* 버튼의 높이 */
     margin-left: 0px;
     margin-right: 0px;
+}
+
+.labelStyle {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.formGroupStyle {
+    margin-bottom: 28px;
 }

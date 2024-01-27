@@ -19,6 +19,7 @@
 .custom-button {
     width: 120px;  /* 버튼의 너비 */
     height: 50px;  /* 버튼의 높이 */
+    margin-left: 50px;
 }
 
 .table-container {

@@ -36,6 +36,13 @@ const CreateMember = () => {
             console.log('writeBoard/response: ', response);
             console.log('writeBoard/response.status: ', response.status);
             navigate("/", {});
+            if(response.status == 200) {
+                alert("멤버 생성 완료!")
+                navigate("/", { });
+            }
+            else {
+                alert("멤버 생성 실패ㅠ")
+            }
         } catch (err) {
             console.log('CreateMember/handleInput/err: ', err);
             resetInput();
@@ -53,21 +60,21 @@ const CreateMember = () => {
             <div className="title">멤버 등록 폼</div>
             <div className="form-container">
                 <Form className="custom-form">
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>이름</Form.Label>
-                        <Form.Control id='input_name' type="text" placeholder="이름을 입력하세요" onChange={(e) => setName(e.target.value) } value={username}/>
+                    <Form.Group className="formGroupStyle" controlId="formBasicEmail">
+                        <Form.Label className="labelStyle">이름</Form.Label>
+                        <Form.Control size="lg" id='input_name' type="text" placeholder="이름을 입력하세요" onChange={(e) => setName(e.target.value) } value={username}/>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>나이</Form.Label>
-                        <Form.Control id='input_age' type="number" placeholder="나이를 입력하세요" onChange={(e) => setAge(e.target.value) } value={age}/>
+                    <Form.Group className="formGroupStyle" controlId="formBasicPassword">
+                        <Form.Label className="labelStyle">나이</Form.Label>
+                        <Form.Control size="lg" id='input_age' type="number" placeholder="나이를 입력하세요" onChange={(e) => setAge(e.target.value) } value={age}/>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>주소</Form.Label>
-                        <Form.Control id='input_address' type="text" placeholder="주소를 입력하세요" onChange={(e) => setAddress(e.target.value) } value={address}/>
+                    <Form.Group className="formGroupStyle" controlId="formBasicPassword">
+                        <Form.Label className="labelStyle">주소</Form.Label>
+                        <Form.Control size="lg" id='input_address' type="text" placeholder="주소를 입력하세요" onChange={(e) => setAddress(e.target.value) } value={address}/>
                     </Form.Group>
-                    <br/>
+
                     <Button variant="primary" className="create-member-button" type="button" onClick={handleInputClick}>
                         멤버 등록
                     </Button>

@@ -27,11 +27,11 @@ const Detail = () => {
             });
             console.log('Detail/handleDeleteBtnClick/response: ', response);
             if(response.status == 204) {
-                alert("게시글 삭제 완료!")
+                alert("멤버 삭제 완료!")
                 navigate("/", { });
             }
             else {
-                alert("게시글 삭제 실패ㅠ")
+                alert("멤버 삭제 실패ㅠ")
             }
         } else {
             return
@@ -69,23 +69,24 @@ const Detail = () => {
 
             <div className="form-container">
                 <Form className="custom-form">
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>멤버 ID</Form.Label>
-                        <Form.Control id='input_name' type="number" value={id} disabled/>
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>이름</Form.Label>
-                        <Form.Control id='input_name' type="text" value={username} disabled/>
+                    <Form.Group className="formGroupStyle" controlId="formBasicEmail">
+                        <Form.Label className="labelStyle">멤버 ID</Form.Label>
+                        <Form.Control size="lg" id='input_name' type="number" value={id} disabled/>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>나이</Form.Label>
-                        <Form.Control id='input_age' type="number" value={age} disabled/>
+                    <Form.Group className="formGroupStyle" controlId="formBasicEmail">
+                        <Form.Label className="labelStyle">이름</Form.Label>
+                        <Form.Control size="lg" id='input_name' type="text" value={username} disabled/>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>주소</Form.Label>
-                        <Form.Control id='input_address' type="text" value={address} disabled/>
+                    <Form.Group className="formGroupStyle" controlId="formBasicPassword">
+                        <Form.Label className="labelStyle">나이</Form.Label>
+                        <Form.Control size="lg" id='input_age' type="number" value={age} disabled/>
+                    </Form.Group>
+
+                    <Form.Group className="formGroupStyle" controlId="formBasicPassword">
+                        <Form.Label className="labelStyle">주소</Form.Label>
+                        <Form.Control size="lg" id='input_address' type="text" value={address} disabled/>
                     </Form.Group>
                     <br/>
                     <Button variant="primary" className="detail-member-button-edit" type="button" onClick={handleEditBtnClick}>
